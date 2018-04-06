@@ -1,0 +1,73 @@
+.aboutme {
+    position: relative;
+    width: 100vw;
+    height: 35vh;
+    .green {
+        width: 100vw;
+        height: 20.6vh;
+        background-color: #b7d481;
+    }
+    .user{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto auto;
+        width: 90vw;
+        height: 26.5vh;
+        border-radius: 3vw;
+        background: url(./img/bg.png);
+        background-size: 100% 100%;
+        .user-ic-position{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 90vw;
+            height: 15vh;
+            text-align: center;
+            .user-ic{
+                display: inline-block;
+                width: 20vw;
+                height: 20vw;
+                border-radius: 20vw;
+                background-color: red;
+            }
+            p{
+                font-size: 4vw;
+            }
+        }
+    }
+}
+
+
+.user-mes-list {
+    height: 57vh;
+    width: 90vw;
+    margin: 0 auto;
+    .user-route {
+        width: 90vw;
+        height: 6vh;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        border-radius: 10vw;
+        .user-route-item {
+            display: block;
+            width: 45vw;
+            height: 6vh;
+            line-height: 6vh;
+            text-align: center;
+            text-decoration: none;
+            font-size: 4vw;
+            color: white;
+        }
+    }
+    .mine-list {
+        height: 50vh;
+        overflow: scroll;
+    }
+}
