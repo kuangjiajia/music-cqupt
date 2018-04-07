@@ -4,14 +4,14 @@ class API {
     constructor() {
     }
     async getNewest(pageNum) {
-        // return await axios.get("https://wx.idsbllp.cn/test-proxy-rewrite-root/Vodplatform/main/latest??",{
-        //     params:{
-        //         pageSize: 10,
-        //         pageNum
-        //     }  
-        // })
+        return await axios.get("https://wx.idsbllp.cn/test-proxy-rewrite-root/Vodplatform/main/latest??",{
+            params:{
+                pageSize: 10,
+                pageNum
+            }  
+        })
 
-        return await axios.get("/demo")
+        // return await axios.get("/demo")
 
     }  
     async getReview(pageNum) {

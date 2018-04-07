@@ -6,13 +6,14 @@ export const add_page = (data) => ({
 })
 
 export const loadNewest = num => dispatch => {
-    // API.getNewest(num).then(({ data: { data }}) => {
-    //     dispatch(add_page(data))
-    // })
-    API.getNewest(num).then((res) => {
-        dispatch(add_page(res.data))
-        console.log(res)
+    API.getNewest(num).then(({ data: { data }}) => {
+        console.log(data)
+        dispatch(add_page(data))
     })
+    // API.getNewest(num).then((res) => {
+    //     dispatch(add_page(res.data))
+    //     console.log(res)
+    // })
 }
 
 export const loadReview = num => dispatch => {

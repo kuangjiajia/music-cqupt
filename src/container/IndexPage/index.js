@@ -33,10 +33,16 @@ class IndexPage extends Component {
                     {
                         pageState.map((item,index) => {
                             return <Item key={index}
-                                        songName={item.songName}
+                                        songName={item.songname}
                                         singer={item.singer}
                                         saySth={item.saySth}
-                                        toName={item.toName} />
+                                        toName={item.toname} 
+                                        nickName={item.nickname}
+                                        headImgUrl={item.headimgurl}
+                                        id={item.id}
+                                        state={item.state}
+                                        isanonymous={item.isanonymous}
+                                        like={item.like}/>
                         })
                     }
                 </ul>
@@ -53,7 +59,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadMusic: () => dispatch(loadNewest()) 
+        loadMusic: () => dispatch(loadNewest(1)) 
     }
 }
 

@@ -31,7 +31,8 @@ class URI {
 	}
 }
 const wxData = {
-	"appID": "wx81a4a4b77ec98ff4"
+	// "appID": "wx81a4a4b77ec98ff4"
+	"appID": "wx14933ed9b6667149"
 }
 
 function generateGetCodeUrl(redirectURL) {

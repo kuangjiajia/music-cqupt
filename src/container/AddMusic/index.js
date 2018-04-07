@@ -28,6 +28,7 @@ class AddMusic extends Component {
         this.onBlurSinger = this.onBlurSinger.bind(this)
         this.onBlurSong = this.onBlurSong.bind(this)
         this.onBlurName = this.onBlurName.bind(this)
+        this.anonymousChange = this.anonymousChange.bind(this)
     }
     handleInputMusicChange(e) {
         this.setState({
@@ -55,18 +56,28 @@ class AddMusic extends Component {
         })
     }
     submitState() {
-        const { warnNameText ,warnSingerText , warnSongText , warnStuText } = this.state 
-        if(warnNameText === "" && warnSingerText === "" && warnSongText === "" && warnStuText === "") {
+        const { toStuid , songName , toName , singer , saySth } = this.state 
+        if(toStuid.length === 10 && songName.length !== 0 && singer.length !== 0 && toName.length !== 0) {
+            this.props.commitMes({
+                toStuid,
+                songName,
+                toName,
+                singer,
+                saySth
+            })
+            this.setState({
+                toStuid: "",
+                songName: "",
+                toName: "",
+                singer: "",
+                saySth: ""
+            })
+            alert("点歌成功")
+        }else {
             this.onBlurName()
             this.onBlurSinger()
             this.onBlurSong()
             this.onBlurStu()
-            if(this.state.warnNameText === "" && this.state.warnSingerText === "" && this.state.warnSongText === "" && this.state.warnStuText === "") {
-                this.props.commitMes(this.state);
-            }else{
-                alert("您的输入有误～～")
-            }
-        }else {
             alert("您的输入有误～～");
         }
     }
@@ -82,6 +93,9 @@ class AddMusic extends Component {
     onBlurSinger() {
         this.state.singer.length === 0 ? this.setState({"warnSingerText": "输入不能为空～～"}) : this.setState({"warnSingerText": ""})
     }
+    anonymousChange() {
+        this.state.isAnonymous === 0 ? this.setState({isAnonymous: 1}) : this.setState({isAnonymous: 0})
+    }
     render() { 
         return (
             <div className="add-music-container">
@@ -89,7 +103,7 @@ class AddMusic extends Component {
                 <ul className="add-music">
                     <li className="add-music-input">
                         <h3>歌曲名</h3>
-                        <input type="text" placeholder="请输入15字以内的歌曲～～" maxlength="15"
+                        <input type="text" placeholder="请输入15字以内的歌曲～～" maxLength="15"
                                onBlur={this.onBlurSong.bind(this)}
                                value={this.state.songName} 
                                onChange={this.handleInputMusicChange}/>
@@ -113,7 +127,7 @@ class AddMusic extends Component {
                     </li>
                     <li className="add-music-input">
                         <h3>对方学号</h3>
-                        <input type="text" placeholder="请输入对方学号～～" maxlength="10"
+                        <input type="text" placeholder="请输入对方学号～～" maxLength="10"
                                value={this.state.toStuid} 
                                onBlur={this.onBlurStu.bind(this)}
                                onChange={this.handleInputToStuIdChange}/>
@@ -121,7 +135,7 @@ class AddMusic extends Component {
                     </li>
                     <li className="add-music-textarea">
                         <h3>想说的话</h3>
-                        <textarea rows="4" cols="37" maxlength="50"
+                        <textarea rows="4" cols="37" maxLength="50"
                                   placeholder="请输入想说的话，不超过50个字～～"
                                   value={this.state.saySth}
                                   onChange={this.handleInputToContentChange}>
@@ -132,7 +146,7 @@ class AddMusic extends Component {
                     </li>
                     <p className="add-muci-anony">
                         <span>
-                            <input type="checkbox" />
+                            <input type="checkbox" onChange={this.anonymousChange}/>
                         </span>&nbsp;匿名
                     </p>
                 </ul>
