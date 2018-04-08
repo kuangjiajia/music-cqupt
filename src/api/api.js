@@ -11,7 +11,6 @@ class API {
             }  
         })
 
-        // return await axios.get("/demo")
 
     }  
     async getReview(pageNum) {
