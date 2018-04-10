@@ -1,4 +1,5 @@
 {
+  "homepage": "localhost:5678/index",
   "name": "react-app-demo",
   "version": "0.1.0",
   "private": true,
