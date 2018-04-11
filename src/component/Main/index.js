@@ -10,18 +10,18 @@ class Main extends Component {
         super(props);
         this.state = {}
     }
-    // componentDidMount() {
-    //     const uri = new URI(document.location.href)
-    //     const query = uri.query()
-    //     const { code } = query
-    //     alert(document.location.href);
-    //     if(code) {
-            
-    //     } else {
-    //         alert(generateGetCodeUrl(document.location.href))
-    //         document.location = generateGetCodeUrl(document.location.href);
-    //     }
-    // }
+    componentDidMount() {
+        const uri = new URI(document.location.href)
+        const query = uri.query()
+        const { code } = query
+        alert(document.location.href);
+        if(code) {
+            alert(code)
+        } else {
+            alert(generateGetCodeUrl(encodeURIComponent(document.location.href)))
+            document.location.href = generateGetCodeUrl(encodeURIComponent(document.location.href));
+        }
+    }
     render() { 
         return (
             <div className="main-style">
