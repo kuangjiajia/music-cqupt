@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { Switch , withRouter , Route , Link , Redirect } from 'react-router-dom'
 // import IndexInfor from './component/Infor/index.js'
-import './indexPage.less'
-import '../../mock/index.js'
+// import ReactPlayer from 'react-player'
 import { loadNewest } from '../../action/index/index.js'
 import { connect } from 'react-redux'
-import Item from '../../component/Item/index.js'
+import Item from '../../component/Item/index'
+import MusicItem from '../../component/musicItem/index'
 import styles from './config.js'
+import API from '../../api/api.js'
+import './indexPage.less'
+import '../../mock/index.js'
+
 
 
 class IndexPage extends Component {
@@ -15,7 +19,11 @@ class IndexPage extends Component {
         this.state = {}
     }
     componentDidMount() {
-        this.props.loadMusic()
+        API.getVideo("/api/music?musicName=一千个伤心的理由").then(({data: {videoUrl}}) => {
+            this.setState({
+                videoUrl
+            })
+        })
     }
     render() { 
         const { pathname } = this.props.location
@@ -29,7 +37,8 @@ class IndexPage extends Component {
                     <Link to={`${this.props.match.path}/previous`} className="route-style"
                           style={pathname === `${this.props.match.path}/previous` ? styles.choose : styles.normal}>往期回顾</Link>
                 </div>
-                <ul className="mes-list">
+                <MusicItem />
+                {/* <ul className="mes-list">
                     {
                         pageState.map((item,index) => {
                             return <Item key={index}
@@ -45,7 +54,7 @@ class IndexPage extends Component {
                                         like={item.like}/>
                         })
                     }
-                </ul>
+                </ul> */}
             </div>
         )
     }

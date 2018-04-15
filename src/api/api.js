@@ -10,8 +10,6 @@ class API {
                 pageNum
             }  
         })
-
-
     }  
     async getReview(pageNum) {
         return await axios.get("https://wx.idsbllp.cn/test-proxy-rewrite-root/Vodplatform/review??",{
@@ -40,6 +38,13 @@ class API {
             }    
         })
     }
+    async getVideo(musicName) {
+        return await axios.get("/api/music",{
+            params:{
+                musicName
+            }
+        })
+    } 
     // async getUserMes(code) {
     //     return await axios.get
     // }

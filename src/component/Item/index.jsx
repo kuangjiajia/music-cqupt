@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import goodIc from './img/good-ic.png'
 import goodIcChoose from './img/good-choose-ic.png'
+import axios from 'axios'
 import './item.less'
 class Item extends Component {
     constructor(props) {
@@ -13,6 +14,11 @@ class Item extends Component {
     }
     handleClickChange() {
         this.state.good === 0 ? this.setState({good: 1,num: ++this.state.num}) : this.setState({good: 0, num: --this.state.num})
+    }
+    componentDidMount() {
+        axios.get("/api/music").then(res => {
+            console.log(res)
+        })
     }
     render() { 
         const { songName , singer , saySth , toName , nickName , headImgUrl} = this.props

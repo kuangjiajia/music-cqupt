@@ -16,16 +16,16 @@ module.exports = {
         const musicList = musicListUrl(encodeURIComponent(musicName))
         // console.log(encodeURI(musicList))
         const dt = await request.get(musicList)
-        console.log(JSON.parse(dt.res.text).data)
+        // console.log(JSON.parse(dt.res.text).data)
         // console.log(JSON.parse(dt))
         const dataList = JSON.parse(dt.res.text).data.song.itemlist
-        console.log(dataList)
+        // console.log(dataList)
         const dataMid = dataList[0].mid
         const newMusic = musicUrl(dataMid)
         const newData = await request.get(newMusic)
         const videoUrl = Object.values(JSON.parse(newData.res.text).url)[0]
-        console.log(videoUrl)
-        ctx.response.type = "text/json"
+        // console.log(videoUrl)
+        ctx.response.type = "json"
         ctx.response.body = {
             videoUrl
         }

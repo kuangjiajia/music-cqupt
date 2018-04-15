@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch , Route , Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Item from '../../component/Item/index.js'
+import Item from '../../component/Item/index'
 import styles from './config.js'
 import './mineInfor.less'
 class MineInfor extends Component {

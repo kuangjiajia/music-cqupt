@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { subMusic } from '../../action/music/index.js'
+import { subMusic } from '../../action/music/index'
 import './addMusic.less'
 class AddMusic extends Component {
     constructor(props) {
