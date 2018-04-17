@@ -112,6 +112,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "http-proxy-middleware": "^0.17.4"
+    "http-proxy-middleware": "^0.17.4",
+    "webpack": "^3.8.1"
   }
 }
