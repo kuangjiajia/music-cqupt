@@ -8,8 +8,10 @@ const { STATICPATH } = config
 
 module.exports = (app) => {
     app.use(bodyParser())
-    app.use(staticPath(STATICPATH))
-    app.use(autoRoute())
+    app.use(staticPath(STATICPATH,{
+    	proxy: "/cquptMusic"
+    }))
+    // app.use(autoRoute())
     // app.use(async (ctx,next) => {
     //     console.log(ctx.req.url)
     //     await next()
