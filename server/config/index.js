@@ -1,6 +1,6 @@
 const path = require("path")
 
-const PORT = 5678
+const PORT = 4567
 const STATICPATH = path.resolve(__dirname,"../../build")
 
 module.exports =  {
