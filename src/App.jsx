@@ -6,7 +6,7 @@ import { store } from './store/index.js'
 
 const App = () => (
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/cquptMusic">
             <Root />
         </BrowserRouter>
     </Provider>
