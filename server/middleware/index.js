@@ -11,10 +11,9 @@ module.exports = (app) => {
     app.use(staticPath(STATICPATH,{
     	proxy: "/cquptMusic"
     }))
+
+    // app.use(staticPath(STATICPATH))
     // app.use(autoRoute())
-    // app.use(async (ctx,next) => {
-    //     console.log(ctx.req.url)
-    //     await next()
-    // })
+
     console.log(STATICPATH)
 }

@@ -58,7 +58,6 @@ module.exports = {
     // This does not produce a real file. It's just the virtual path that is
     // served by WebpackDevServer in development. This is the JS bundle
     // containing code from all our entry points, and the Webpack runtime.
-    assetsPublicPath: "./",
     path: path.join(__dirname,"static/js/"),
     filename: 'bundle.js',
     // There are also additional JS chunk files if you use code splitting.
@@ -137,7 +136,7 @@ module.exports = {
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: '/static/media/[name].[hash:8].[ext]',
             },
           },
           // Process JS with Babel.
@@ -206,7 +205,7 @@ module.exports = {
             exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             loader: require.resolve('file-loader'),
             options: {
-              name: 'static/media/[name].[hash:8].[ext]',
+              name: '/static/media/[name].[hash:8].[ext]',
             },
           },
         ],
